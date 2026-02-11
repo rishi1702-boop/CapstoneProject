@@ -1,0 +1,96 @@
+### Create a new user (normal user signup)
+POST http://localhost:4000/user-api/users
+Content-Type: application/json
+
+{
+    "firstName":"vikas",
+    "lastName":"bandaru",
+    "email":"cikas@gmail.com",
+    "password":"User@1234",
+    "profileImageUrl":"https://www.wikihow.com/Get-the-URL-for-Pictures"
+}
+
+### Create a new author (author signup)
+POST http://localhost:4000/author-api/users
+Content-Type: application/json
+
+{
+    "firstName":"akhilesh",
+    "lastName":"goud",
+    "email":"ak@gmail.com",
+    "password":"Author@1234",
+    "profileImageUrl":"https://www.wikihow.com/Get-the-URL-for-Pictures"
+}
+
+### Login as admin
+POST http://localhost:4000/common-api/login
+Content-Type:application/json
+
+{
+    "email":"admin@gmail.com",
+    "password":"Rishi"
+}
+
+### Login as author
+POST http://localhost:4000/common-api/login
+Content-Type:application/json
+
+{
+    "email":"ak@gmail.com",
+    "password":"Author@1234"
+}
+
+### Create a new article (author only)
+POST http://localhost:4000/author-api/articles
+Content-Type:application/json
+
+{
+    "author":"69896d574cb43c1ef358c4d9",
+    "title":"java",
+    "category":"prog",
+    "content":"java.util.*"
+}
+
+### Get all articles by a specific author
+GET http://localhost:4000/author-api/articles/69896d574cb43c1ef358c4d9
+
+### Update an article by ID (author only)
+PUT http://localhost:4000/author-api/articles/698990b93afe0b8cce8eccd5
+Content-Type:application/json
+
+{
+    "author":"69896d574cb43c1ef358c4d9",
+    "title":"python",
+    "category":"prog",
+    "content":"functions,numpy,pandas"
+}
+
+### Delete a specific article by a specific author
+DELETE  http://localhost:4000/author-api/users/69896d574cb43c1ef358c4d9/articles/6989a52a512c981d34f9813b
+
+### Get all articles (user view)
+GET http://localhost:4000/user-api/articles
+
+### Logout (common route)
+GET http://localhost:4000/common-api/logout
+
+### Test route (for debugging)
+GET http://localhost:4000/test
+
+### Delete a user (admin only)
+DELETE  http://localhost:4000/admin-api/users/69896957ee251acab043876e
+
+### Get a user by ID (admin only)
+GET  http://localhost:4000/admin-api/users/69896957ee251acab043876e
+
+### Delete an article by author ID and article ID
+DELETE http://localhost:4000/author-api/articles/author-id/69896d574cb43c1ef358c4d9/article-id/698990b93afe0b8cce8eccd5
+
+### Change password (common route)
+PUT http://localhost:4000/common-api/change-password
+Content-Type: application/json
+
+{
+    "currentPassword":"Author@1234",
+    "newPassword":"Author@5678"
+}
